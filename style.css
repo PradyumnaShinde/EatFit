@@ -1,0 +1,189 @@
+/* =====================================================================
+   EatFit — eatfit-extras.css  (styles for eatfit-extras.js)
+   Uses the CSS variables already defined in index.html.
+   ===================================================================== */
+
+/* ---------- Dashboard quick actions ---------- */
+.ef-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 14px 20px 4px; }
+.ef-act {
+  background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius-md);
+  padding: 12px 6px; font-family: inherit; font-size: 0.78rem; font-weight: 600; color: var(--green-dark);
+  cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  box-shadow: var(--shadow-sm); transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.ef-act span { font-size: 1.35rem; line-height: 1; }
+.ef-act:hover { background: var(--green-faint); border-color: var(--green-light); }
+.ef-act:active { transform: scale(0.97); }
+
+.ef-menu-chip {
+  margin: 10px 20px 0; padding: 9px 12px; border-radius: var(--radius-sm);
+  background: var(--green-faint); border: 1px solid var(--green-pale);
+  font-size: 0.8rem; color: var(--green-mid); display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.ef-menu-chip.none { background: var(--surface); border-style: dashed; border-color: var(--border); color: var(--text-muted); }
+.ef-menu-chip button {
+  margin-left: auto; background: none; border: none; color: var(--green-mid);
+  font-family: inherit; font-weight: 700; font-size: 0.8rem; cursor: pointer; padding: 2px 4px;
+}
+
+/* ---------- Meal cards ---------- */
+.ef-head-right { display: flex; align-items: center; gap: 10px; }
+.ef-skip-btn {
+  background: none; border: 1.5px solid var(--border); color: var(--text-secondary);
+  border-radius: 14px; padding: 3px 10px; font-family: inherit; font-size: 0.74rem; font-weight: 600; cursor: pointer;
+}
+.ef-skip-btn:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-light); }
+.meal-card.ef-skipped { opacity: 0.75; background: var(--surface-alt); }
+.meal-card.ef-skipped .meal-name { text-decoration: line-through; text-decoration-color: var(--text-muted); }
+.meal-item.ef-pending .item-name { color: var(--text-secondary); }
+
+.ef-tag {
+  display: inline-block; font-size: 0.66rem; font-weight: 600; padding: 1px 7px; border-radius: 9px;
+  background: var(--green-pale); color: var(--green-mid); vertical-align: middle; margin-left: 2px;
+}
+.ef-tag.add { background: var(--amber-light); color: #7a4a10; }
+.ef-tag.off { background: var(--yellow-light); color: var(--yellow); }
+
+.ef-qty { display: flex; gap: 4px; }
+.ef-qty button {
+  width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--surface);
+  color: var(--green-mid); font-weight: 700; font-size: 0.95rem; line-height: 1; cursor: pointer; padding: 0;
+}
+.ef-qty button:hover { background: var(--green-faint); border-color: var(--green-light); }
+
+/* ---------- Shared bits ---------- */
+.ef-p { font-size: 0.93rem; color: var(--text-secondary); margin-bottom: 16px; }
+.ef-hint { font-size: 0.8rem; color: var(--text-muted); margin: 6px 0 10px; }
+.ef-label { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; }
+.ef-sub { font-size: 0.78rem; color: var(--text-muted); }
+.ef-live { color: var(--green-mid); font-weight: 600; }
+.ef-empty { font-size: 0.85rem; color: var(--text-muted); padding: 6px 0 4px; }
+.ef-stack { display: flex; flex-direction: column; gap: 10px; }
+.ef-stack > button { width: 100%; }
+.ef-flex { display: flex; gap: 10px; }
+.ef-flex > button { flex: 1; width: auto; margin-top: 0; }
+.ef-two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ef-inline { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.ef-inline input, .ef-inline select {
+  flex: 1; min-width: 0; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  font-family: inherit; font-size: 0.92rem; background: var(--surface); outline: none;
+}
+.ef-inline input:focus, .ef-inline select:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(64,145,108,0.12); }
+.ef-suffix { font-size: 0.85rem; color: var(--text-muted); white-space: nowrap; }
+
+.ef-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.ef-chip {
+  display: inline-flex; align-items: center; gap: 5px; padding: 7px 13px; border-radius: 20px;
+  border: 1.5px solid var(--border); background: var(--surface); color: var(--text-secondary);
+  font-family: inherit; font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.13s;
+}
+.ef-chip:hover { border-color: var(--green-light); }
+.ef-chip.on { background: var(--green-mid); border-color: var(--green-mid); color: #fff; }
+
+.ef-seg { display: flex; gap: 4px; background: var(--surface-alt); border-radius: var(--radius-sm); padding: 4px; margin-bottom: 14px; }
+.ef-seg button {
+  flex: 1; padding: 9px; border: none; background: none; border-radius: 6px; cursor: pointer;
+  font-family: inherit; font-weight: 600; font-size: 0.88rem; color: var(--text-muted);
+}
+.ef-seg button.on { background: var(--surface); color: var(--green-mid); box-shadow: var(--shadow-sm); }
+
+.modal-body textarea {
+  width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  font-family: inherit; font-size: 0.93rem; color: var(--text-primary); resize: vertical; outline: none;
+}
+.modal-body textarea:focus { border-color: var(--green-light); box-shadow: 0 0 0 3px rgba(64,145,108,0.12); }
+.modal-body .form-group input, .modal-body .form-group select { max-width: 100%; }
+
+/* ---------- Plan summary ---------- */
+.ef-plan-meal { border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 10px; overflow: hidden; }
+.ef-plan-head { display: flex; justify-content: space-between; align-items: center; padding: 11px 14px; background: var(--green-faint); font-size: 0.92rem; font-weight: 600; }
+.ef-plan-head b { color: var(--green-mid); font-size: 0.85rem; }
+.ef-plan-meal ul { list-style: none; padding: 6px 14px 10px; }
+.ef-plan-meal li { font-size: 0.88rem; padding: 5px 0; border-bottom: 1px solid var(--border); }
+.ef-plan-meal li:last-child { border-bottom: none; }
+.ef-proj { margin: 14px 0 4px; }
+
+/* ---------- Quick suggest ---------- */
+.ef-gapbox { background: var(--amber-light); border: 1.5px solid #f0c080; color: #7a4a10; border-radius: var(--radius-sm); padding: 10px 12px; font-size: 0.83rem; margin: 10px 0 12px; }
+.ef-gapbox.ok { background: var(--green-faint); border-color: var(--green-pale); color: var(--green-mid); }
+.ef-qs-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--surface-alt); border-radius: var(--radius-sm); margin-bottom: 8px; }
+.ef-qs-main { flex: 1; min-width: 0; }
+.ef-qs-name { font-weight: 600; font-size: 0.93rem; }
+.ef-qs-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
+.ef-fills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+.ef-fill { font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 9px; background: var(--green-pale); color: var(--green-mid); }
+.ef-qs-btns { display: flex; flex-direction: column; gap: 6px; }
+.ef-mini {
+  padding: 6px 10px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); background: var(--surface);
+  color: var(--green-mid); font-family: inherit; font-size: 0.76rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.ef-mini.solid { background: var(--green-mid); border-color: var(--green-mid); color: #fff; }
+.ef-mini:hover { border-color: var(--green-light); }
+
+/* ---------- Add-food modal: quick picks ---------- */
+.ef-sugg { margin-bottom: 14px; }
+.ef-sugg-title { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; }
+.ef-sugg-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
+.ef-sugg-row::-webkit-scrollbar { display: none; }
+.ef-sugg-chip {
+  flex-shrink: 0; padding: 8px 12px; border-radius: 14px; border: 1.5px solid var(--green-pale);
+  background: var(--green-faint); color: var(--green-dark); font-family: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer;
+}
+.ef-sugg-chip small { color: var(--text-muted); font-weight: 500; margin-left: 3px; }
+.ef-sugg-chip:hover { border-color: var(--green-light); }
+
+/* ---------- Menu upload ---------- */
+.ef-drop {
+  display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 22px 14px; margin-bottom: 12px;
+  border: 2px dashed var(--border); border-radius: var(--radius-md); cursor: pointer;
+  color: var(--green-mid); font-weight: 600; font-size: 0.9rem; text-align: center; transition: all 0.15s;
+}
+.ef-drop:hover { border-color: var(--green-light); background: var(--green-faint); }
+.ef-drop-ico { font-size: 1.8rem; }
+.ef-preview { width: 100%; max-height: 180px; object-fit: contain; border-radius: var(--radius-sm); background: var(--surface-alt); margin-bottom: 10px; }
+.ef-status { font-size: 0.82rem; color: var(--text-secondary); background: var(--surface-alt); border-radius: var(--radius-sm); padding: 9px 12px; margin-bottom: 12px; }
+.ef-checks { display: flex; flex-direction: column; gap: 6px; }
+.ef-check {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--surface-alt);
+  border-radius: var(--radius-sm); font-size: 0.92rem; cursor: pointer;
+}
+.ef-check input { accent-color: var(--green-mid); width: 18px; height: 18px; }
+.ef-check span { flex: 1; font-weight: 500; }
+.ef-check small { color: var(--text-muted); font-size: 0.76rem; }
+.ef-unmatched { margin-top: 14px; }
+
+/* ---------- Settings page ---------- */
+.ef-settings { padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+.ef-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; box-shadow: var(--shadow-sm); }
+.ef-card-title { font-weight: 700; font-size: 0.98rem; margin-bottom: 4px; }
+.ef-card .form-group { margin-bottom: 12px; }
+.ef-card .btn-primary { margin-top: 0; }
+.ef-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.ef-row:last-of-type { border-bottom: none; }
+.ef-num { display: flex; align-items: center; gap: 12px; }
+.ef-num b { min-width: 26px; text-align: center; }
+.ef-num button, .ef-x {
+  width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--surface);
+  color: var(--green-mid); font-size: 1.05rem; font-weight: 700; cursor: pointer; line-height: 1; padding: 0;
+}
+.ef-x { color: var(--text-muted); font-size: 0.9rem; }
+.ef-x:hover { color: var(--red); background: var(--red-light); border-color: #f5c6c6; }
+
+/* ---------- Toast ---------- */
+.ef-toast {
+  position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 12px); max-width: 88vw;
+  background: var(--green-dark); color: #fff; padding: 11px 18px; border-radius: 22px;
+  font-size: 0.86rem; font-weight: 500; box-shadow: var(--shadow-lg); z-index: 400;
+  opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; text-align: center;
+}
+.ef-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 380px) {
+  .ef-two { grid-template-columns: 1fr; }
+  .ef-actions { gap: 8px; padding-left: 14px; padding-right: 14px; }
+  .meal-item { gap: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ef-toast, .ef-act { transition: none; }
+}
